@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fs= require('fs');
-
+require('dotenv').config();
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
@@ -73,5 +73,6 @@ app.post("/createhisaab", function(req, res){
         });
 } );
 
-app.listen(3000);
+const port = process.env.PORT || 3000; 
+console.log(`Server running on port ${port}`);
 
